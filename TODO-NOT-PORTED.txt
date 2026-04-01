@@ -1,0 +1,26 @@
+Navitus static mirror — items not replicated or different from live WordPress site
+==================================================================================
+
+1. WordPress / PHP
+   - Contact Form 7: form UI is copied; submit does not POST to WordPress (alert only). Wire to Formspree, Netlify Forms, or your API for production.
+
+2. Search
+   - Header search icon opens a local overlay only; no site search index. Career/Blog search forms use action="#" and do nothing.
+
+3. Blog / RSS / Meta widgets
+   - Blog page body is empty (matches live empty entry content). Career widget sidebar links (Log in, RSS) are placeholders; live site pointed at wp-login.php and feeds.
+
+4. Assets
+   - Images, theme background graphics, and icomoon fonts are vendored under assets/wp-content/... Bootstrap and Font Awesome are under assets/vendor/... No hotlinking to navituscontrols.com for those.
+   - Google Fonts (Roboto, Source Sans Pro, etc.) still load from fonts.googleapis.com; if typography fails offline, add local @font-face or remove the Google link and rely on overrides.css system stacks.
+
+5. Scripts
+   - Original used jQuery, Slick, slimmenu, Bootstrap JS, NiceScroll. This build uses vanilla JS for carousel, marquee, menu, and search overlay. Slick testimonial slider on home is empty on live too; not replicated.
+
+6. Career page banner
+   - Live WordPress page had an empty <h1> in the banner; this build uses "Career" in the banner for clarity.
+
+7. Exact typography / pixel-perfect layout
+   - Theme CSS is copied; Bootstrap 3.4.1 from CDN may differ slightly from the original 3.4.0 build. Minor spacing differences possible.
+
+8. Optional: download favicon from live site and add <link rel="icon" href="...">.
